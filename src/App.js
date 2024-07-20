@@ -23,6 +23,7 @@ function App() {
       </ErrorBoundary>
       <ToastContainer />
     </Router>
+     
   );
 }
 
