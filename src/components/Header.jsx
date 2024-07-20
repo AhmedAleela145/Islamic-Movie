@@ -6,16 +6,17 @@ import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Header({ onSearch, onSelectCategory, activeCategory }) {
-  const [searchTerm, setSearchTerm] = useState('');
-  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');  // State for search term
+  const navigate = useNavigate(); // Hook for navigation
 
   const handleSearchChange = (event) => {
     const term = event.target.value;
-    setSearchTerm(term);
-    onSearch(term);
+    setSearchTerm(term);// Update search term state
+    onSearch(term);// Call onSearch prop function
   };
 
   const handleLogout = () => {
+    // Show toast confirmation for logout
     toast.warn(
       <div>
         <p>Are you sure you want to log out?</p>
