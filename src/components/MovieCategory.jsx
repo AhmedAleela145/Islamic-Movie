@@ -180,6 +180,7 @@ function MovieCategory({ selectedCategory, searchTerm, onMovieClick }) {
             <img src={movie.image} alt={movie.title} className="w-full h-auto rounded" />
             <p className="mt-2">{movie.title}</p>
           </div>
+          
         ))}
       </div>
     </div>
