@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 
 const SignIn = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const [email, setEmail] = useState('');// State for email
+  const [password, setPassword] = useState('');// State for password
+  const navigate = useNavigate();// Hook for navigation
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -26,18 +26,19 @@ const SignIn = () => {
       toast.error('Password must be at least 6 characters long');
       return;
     }
-
+  // Attempt sign-in
     try {
       await signInWithEmailAndPassword(auth, email, password);
       toast.success('Sign In Successful');
-      navigate('/home');
+      navigate('/home');// Navigate to home on success
     } catch (error) {
       console.error('Error signing in:', error);
-      handleSignInError(error);
+      handleSignInError(error);// Handle sign-in error
     }
   };
 
   const handleSignInError = (error) => {
+    // Display appropriate error messages
     switch (error.code) {
       case 'auth/user-not-found':
         toast.error('User not found');
