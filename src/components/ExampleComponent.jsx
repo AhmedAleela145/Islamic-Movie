@@ -7,6 +7,7 @@ const ExampleComponent = () => {
 
   // Simulate fetching data or an object
   useEffect(() => {
+    
     // Simulate an API call or data fetch
     const fetchData = () => {
       // This could be an API call, for example:
