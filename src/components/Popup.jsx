@@ -9,6 +9,7 @@ function Popup({ title, content, onClose }) {
         <div className="mb-4">{content}</div>
         <button onClick={onClose} className="px-4 py-2 bg-red-600 text-white rounded">Close</button>
       </div>
+      
     </div>
   );
 }
