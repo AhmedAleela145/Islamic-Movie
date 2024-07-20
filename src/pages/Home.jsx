@@ -9,28 +9,30 @@ import 'react-toastify/dist/ReactToastify.css';
 const categories = ['Turkey', 'Pakistan', 'Turkmanistan', 'Saudi Arabia', 'UAE', 'Bangladesh', 'All Movies'];
 
 function Home() {
-  const [selectedCategory, setSelectedCategory] = useState('Home');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [showPopup, setShowPopup] = useState(false);
-  const [popupContent, setPopupContent] = useState('');
-  const [popupTitle, setPopupTitle] = useState('');
-  const [error, setError] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('Home');// State for selected category
+  const [searchTerm, setSearchTerm] = useState('');// State for search term
+  const [showPopup, setShowPopup] = useState(false);// State for popup visibility
+  const [popupContent, setPopupContent] = useState('');// State for popup content
+  const [popupTitle, setPopupTitle] = useState(''); // State for popup title
+  const [error, setError] = useState(null); // State for error handl
 
   const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
+    setSelectedCategory(category);// Update selected category
   };
 
   const handleSearch = (term) => {
-    setSearchTerm(term);
+    setSearchTerm(term);// Update search term
   };
 
   const handleWatchClick = () => {
+     // Show watch popup
     setPopupContent('You can watch a movie by picking your favourite kind of movies.');
     setPopupTitle('Watch Now');
     setShowPopup(true);
   };
 
   const handleMoreInfoClick = () => {
+    // Show more information popup
     setPopupContent('Here you can watch more Islamic movies. You can search and watch.');
     setPopupTitle('More Information');
     setShowPopup(true);
@@ -55,7 +57,7 @@ function Home() {
       setShowPopup(true);
     } catch (err) {
       console.error('Error handling movie click:', err);
-      setError(err.message);
+      setError(err.message);// Set error message
     }
   };
 
@@ -65,12 +67,12 @@ function Home() {
       const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
       const match = url.match(regex);
       if (match && match[1]) {
-        return `https://www.youtube.com/embed/${match[1]}`;
+        return `https://www.youtube.com/embed/${match[1]}`;// Convert to embed URL
       }
       return url;
     } catch (err) {
       console.error('Error converting URL:', err);
-      setError(err.message);
+      setError(err.message); // Set error message
     }
   };
 
